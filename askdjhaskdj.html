@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Move Button</title>
+	<style>
+		#myButton {
+			position: absolute;
+			top: 300px;
+			left: 700px;
+			width: 50px;
+			border: none;
+			transition: 0s;
+		}
+		#myButton:hover {
+			box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.5);
+			transition: .2s;
+		}
+
+		#ily {
+			position: absolute;
+			top: 300px;
+			left: 645px;
+			width: 50px;
+			border: none;
+		}
+		#ily:hover{
+			background-color: rgb(110, 183, 117);
+			color: white;
+			transition: .2s;
+		}
+		#text {
+			position: absolute;
+			display: none;
+		}
+		h1 {
+			font-family: arial;
+			text-align: center;
+			margin-top: 17%;
+		}
+	</style>
+</head>
+<body>
+	<h1>Do you LOVE your babi (me)?</h1>
+	<button id="myButton" onclick="moveButton()">No</button>
+	<button id="ily" onclick="showLoveMessage()">Yes</button>
+	<div id="text">>:((</div>
+
+	<script>
+		var fontSize = 16;
+
+		function moveButton() {
+			var button = document.getElementById("myButton");
+			var text = document.getElementById("text");
+			var newX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+			var newY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+			text.style.top = button.offsetTop + "px";
+			text.style.left = button.offsetLeft + "px";
+			text.style.fontSize = fontSize + "px";
+			fontSize++;
+			text.style.display = "block";
+			button.style.top = newY + "px";
+			button.style.left = newX + "px";
+		}
+		function setInitialPosition() {
+			var button = document.getElementById("myButton");
+			var centerX = window.innerWidth / 2 - button.offsetWidth / 2;
+			var centerY = window.innerHeight / 2 - button.offsetHeight / 2;
+			button.style.top = centerY + "px";
+			button.style.left = centerX + "px";
+		}
+		function showLoveMessage() {
+			alert("I love you more<33");
+		}
+	</script>
+</body>
+</html>
+
