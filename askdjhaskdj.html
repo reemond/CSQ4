@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><33</title>
+	<style>
+		#myButton {
+			position: absolute;
+			top: 300px;
+			left: 510px;
+			width: 50px;
+			border: none;
+			transition: 0s;
+			scale: 2;
+		}
+		#myButton:hover {
+			background-color: rgb(233, 76, 76);
+			color: white;
+			transition: .2s;
+		}
+
+		#ily {
+			position: absolute;
+			top: 300px;
+			left: 400px;
+			width: 50px;
+			border: none;
+			scale: 2;
+		}
+		#ily:hover{
+			background-color: rgb(110, 183, 117);
+			color: white;
+			transition: .2s;
+		}
+		#text {
+			position: absolute;
+			display: none;
+		}
+		h1 {
+			font-family: arial;
+			text-align: center;
+			margin-top: 17%;
+			font-size: .5in;
+		}
+	</style>
+</head>
+<body>
+	<h1>Do you LOVE your babi (me)?</h1>
+	<button id="myButton" onclick="moveButton()">No</button>
+	<button id="ily" onclick="showLoveMessage()">Yes</button>
+	<div id="text">>:((</div>
+
+	<script>
+		var fontSize = 25;
+
+		function moveButton() {
+			var button = document.getElementById("myButton");
+			var text = document.getElementById("text");
+			var newX = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+			var newY = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+			text.style.top = button.offsetTop + "px";
+			text.style.left = button.offsetLeft + "px";
+			text.style.fontSize = fontSize + "px";
+			fontSize++;
+			text.style.display = "block";
+			button.style.top = newY + "px";
+			button.style.left = newX + "px";
+		}
+		function setInitialPosition() {
+			var button = document.getElementById("myButton");
+			var centerX = window.innerWidth / 2 - button.offsetWidth / 2;
+			var centerY = window.innerHeight / 2 - button.offsetHeight / 2;
+			button.style.top = centerY + "px";
+			button.style.left = centerX + "px";
+		}
+		function showLoveMessage() {
+			alert("Well I love you more:>> Saying I love you doesnt just have to be about romantic love. Sure, it can be about that intense attraction and desire we feel towards someone we're romantically involved with. But, it can also mean so much more. Sometimes, I love you is a way of saying I appreciate you. It's a way of acknowledging the value someone brings to our lives, whether its through their kindness, their humor, or their support. Other times, I love you is about saying I care about you. Its a way of expressing concern for someones wellbeing and letting them know that we're there for them, no matter what. This love that I'm talking about isnt just the feeling of wanting to kiss you, and although i do, thats not the reason why i say it. I say it because I truly think that I am the only guy in the world who can love  and care for you this much. It serves as a reminder that i give you everytime I can think because no matter how man times i say it, you sometimes forget. Saying I love you isnt as simple as it sounds, you have to carry the weight of its meaning if you do, and I am willing to do just that. I am willing to support you, motivate you, care for you, be there when you need me, and even when you dont, ill always be there. Though Im not gonna be there for you physically, its the thought that counts right:>. I am willing to give you everything I have to see that beautiful smile of yours, as it makes my day when you do. When I hear your laugh, I feel safe and warm with your tone. You make me so happy with the smallest things and the sacrifices that i made make it worth it. So, yeah, I love you can mean a lot of different things. And when I say it to you, as often as i do, what you just read is whats on my mind. I hope you remember this my love. Happy anniversary:>");
+		}
+	</script>	
+</body>
+</html>
+
