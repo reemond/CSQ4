@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Online Shop</title>
+	<meta name="My Online Shop" content="This is a website made to calculate the total amount you have to pay for the products you have bought.">
+	<style>
+        *{
+            font-family: arial;
+        }
+		span,a {
+			color: blue;
+			text-decoration: underline;
+		}
+        button {
+		    width: 100px;
+		    padding: 5px;
+		    background: pink;
+	    }
+    </style>
+</head>
+<body>
+	<h1>FLORAL LAB</h1>
+	<h2>Please select from the following items:</h2>
+	<!--- Provide your own 3 items and their prices in the list --->
+	<ol>
+		<li>Tulip | price: ₱100.00</li>
+		<li>Rose | price: ₱250.00</li>
+		<li>Tulip + Rose | price: ₱300.00</li>
+	</ol>
+	<!-- The following will be used to display purchase information -->
+	<p>Item selected: <span id="item"></span></p>
+	<p>Qty bought: <span id="qty"></span></p>
+	<p>Amount to pay for the item: <span id="bill"></span></p>
+	<p>Current Total Bill: <a>₱</a><span id="tbill">0.00</span></p>
+	<button onclick="buyItem()">Buy an Item</button>
+	<button onclick="clearItems()" >Clear</button>
+    <script>
+        /* Define variables for item numbers and their corresponding prices */
+        const item1Price = 100;
+        const item2Price = 250;
+        const item3Price = 300;
+    
+        /* Function to buy an item */
+        function buyItem() {
+            /* Ask for the item number */
+            let itemNum = prompt("Select your product of choice (1-3):");
+    
+            /* Validate the item number */
+            if (itemNum < 1 || itemNum > 3) {
+                alert("Invalid product number. Please enter a number from 1-3.");
+                return;
+            }
+    
+            /* Ask for the quantity */
+            let qty = prompt("Enter quantity:");
+    
+            /* Validate the quantity */
+            if (isNaN(qty) || qty <= 0 || !Number.isInteger(Number(qty))) {
+                alert("Invalid quantity. Please enter a positive integer.");
+                return;
+            }
+    
+            /* Calculate the bill amount */
+            let bill = 0;
+            switch (itemNum) {
+                case "1":
+                    bill = qty * item1Price;
+                    break;
+                case "2":
+                    bill = qty * item2Price;
+                    break;
+                case "3":
+                    bill = qty * item3Price;
+                    break;
+            }
+    
+            /* Display the purchase information */
+            document.getElementById("item").textContent = "Item#" + itemNum;
+            document.getElementById("qty").textContent = qty;
+            document.getElementById("bill").textContent = "₱" + bill.toFixed(2);
+    
+            /* Update the total bill */
+            let currentBill = parseFloat(document.getElementById("tbill").textContent);
+            document.getElementById("tbill").textContent = (currentBill + bill).toFixed(2);
+        }
+    
+        /* Function to clear the purchase information */
+        function clearItems() {
+            document.getElementById("item").textContent = "";
+            document.getElementById("qty").textContent = "";
+            document.getElementById("bill").textContent = "";
+            document.getElementById("tbill").textContent = "0.00";
+            alert("You have cleared your shopping cart:<");
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Numerology</title>
+		<meta name="Numerology" content="This website would calculate your fortune for the day, based on the number of characters in your name.">
+        <style>
+        	body {
+                background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {
+                padding: 10px; background:violet 
+            }
+            span {
+                font-size: 0.5em; color: maroon
+            }
+            #fortune, #thename {
+                font-size: 1em;
+            }
+        </style>
+
+	</head>
+<body>
+	<h1> Your Fortune is in your name </h1>
+	<h2> Your Name is: <span id="thename"> </span></h2>
+    <h2> Today's fortune: <span id="fortune"> </span></h2>
+    
+    <button onclick="tellFortune()"> Click here to enter your name </button>
+    
+    <script>
+        function tellFortune() {
+            // Ask for the user's full name
+            var fullName = prompt("Please enter your full name");
+            
+            // Display the name in the "thename" span
+            var nameSpan = document.getElementById("thename");
+            nameSpan.innerHTML = fullName;
+            
+            // Calculate the numerology digit of the name's length
+            var charCount = fullName.length;
+            while (charCount > 9) {
+                // Convert the number to a string and sum the digits
+                var sum = 0;
+                var countString = charCount.toString();
+                for (var i = 0; i < countString.length; i++) {
+                    sum += parseInt(countString.charAt(i));
+                }
+                charCount = sum;
+            }
+            
+            // Show the corresponding fortune based on the numerology digit
+            var fortuneSpan = document.getElementById("fortune");
+            switch (charCount) {
+                case 0:
+                    fortuneSpan.innerHTML = "And into the forest I go, to lose my mind and find my soul. -John Muir";
+                    break;
+                case 1:
+                    fortuneSpan.innerHTML = "Do it scared. -Ruth Soukup";
+                    break;
+                case 2:
+                    fortuneSpan.innerHTML = "Each time you break your own boundaries to ensure that someone else likes you, you like yourself a little less. -Mr. Fortune";
+                    break;
+                case 3:
+                    fortuneSpan.innerHTML = "Be careful who you trust. Salt and sugar look the same. -Mr. Fortune";
+                    break;
+                case 4:
+                    fortuneSpan.innerHTML = "The road to success is always under construction. -Lily Tomlin";
+                    break;
+                case 5:
+                    fortuneSpan.innerHTML = "You must expect great things of yourself before you can do them. -Michael Jordan";
+                    break;
+                case 6:
+                    fortuneSpan.innerHTML = "The most effective way to do it, is to do it. -Amelia Earhart";
+                    break;
+                case 7:
+                    fortuneSpan.innerHTML = "The worst enemy to creativity is self-doubt. -Sylvia Plath";
+                    break;
+                case 8:
+                    fortuneSpan.innerHTML = "All endings are also beginnings. We just don't know it at the time. -Mitch Albom";
+                    break;
+                case 9:
+                    fortuneSpan.innerHTML = "It does not do to dwell on dreams and forget to live. -J.K. Rowling";
+                    break;
+                default:
+                    fortuneSpan.innerHTML = "We don't stop going to school when we graduate. -Carol Burnette";
+            }
+        }
+    </script>
+    
+</body>
+</html>

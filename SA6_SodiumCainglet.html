@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Time Password </title>
+		<meta name="One Time Password" content="This website is used to enter one time password (OTP).">
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+<body onload="genOTP()">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a href="#" onclick="genOTP()"> New OTP </a></h2>
+    <button onclick="verifyOTP()"> Enter the OTP as shown above </button>
+    
+    <script>
+        function genOTP() {
+            const otpNumber = document.getElementById('otp');
+            var otp = "";
+            for (let i = 0; i < 6; i++) {
+                otp += Math.floor(Math.random() * 10); // generates the OTP
+            }
+            otpNumber.textContent = otp;
+        }
+        
+        function verifyOTP() {
+            const otpNumber = document.getElementById("otp");
+            const otp = otpNumber.textContent;
+            const userOTP = prompt("Enter the OTP shown on the screen:");
+            if (userOTP === otp) {
+                window.open("https://www.youtube.com"); // directs you to youtube.com
+            } else {
+                alert("The OTP you entered is incorrect. Please try again.");
+                genOTP();
+            }
+        }
+    </script>
+</body>
+</html>
