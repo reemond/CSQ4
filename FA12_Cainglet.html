@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FA12_Cainglet</title>
+        <style>
+            table {
+                margin: auto;
+            }
+            table td {
+                border: 1px solid black;
+                padding: 10px;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                background-color: rgb(238, 238, 238);
+            }
+            input{
+                width: 90px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+        <p>[enter a number between 2 and 10]
+            <form>
+                <input type="input" id="num1" min="2" max="10"> by <input type="input" id="num2" min="2" max="10">
+            </form>
+        </p>
+        <button onclick="multiply()">Click here when ready!</button><br><br>
+        <div id="output"></div>
+        </center>
+        <script>
+            function multiply(){
+                var val;
+                var a = document.getElementById("num1").value; 
+                var b = document.getElementById("num2").value; 
+                var table = "<table>";
+                
+                if ((2 <= a && a <= 10) && (2 <= b && b <= 10)){
+                    for(var i = 1; i <= a; i++){
+                        table += "<tr>";
+                        for(var y = 1; y <= b; y++){
+                            val = i*y;
+                            table = table + "<td>" + val + "</td>";
+                        }
+                        table = table + "</tr>";
+                    }
+                    table = table + "</table>";
+                    document.getElementById("output").innerHTML = table;
+                }else{
+                    alert("Please enter numbers between 2 and 10");
+                    document.getElementById("output").innerHTML = "";
+                }
+            }
+        </script>
+    </body>
+</html>
