@@ -1,0 +1,116 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+  ::-webkit-scrollbar-track {
+    background: #d1d1d1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+body{
+    background-image: url(marble4.jpg);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fafafa;
+    font-family: Arial, sans-serif;
+}
+
+
+form{
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 30px;
+}
+
+h1{
+    font-size: 25px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: arial;
+}
+
+fieldset{
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+label{
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], select{
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus{
+    border-color: #5e97b0;
+    outline: none;
+}
+
+input[type="text"]:invalid, input[type="password"]:invalid, input[type="email"]:invalid, select:invalid{
+    border-color: #e74c3c;
+}
+
+input[type="text"]:valid, input[type="password"]:valid, input[type="email"]:valid, select:valid{
+    border-color: #2ecc71;
+}
+
+input[type="submit"], input[type="reset"]{
+    background-color: #306379;
+    border: 1px solid white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover{
+    background-color: #4a7c8c;
+}
+
+.output{
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+}
+
+.output h2{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.output p{
+    font-size: 16px;
+    margin-bottom: 10px;
+}

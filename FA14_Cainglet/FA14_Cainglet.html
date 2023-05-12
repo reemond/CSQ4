@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="User Information Sheet" content="Displays the information details inputted by the user.">
+    <title>Cainglet_FA14_Sign-up Sheet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <h1>User Information Sheet</h1></br>
+
+        <fieldset>
+            <label for="name"> Name</label>
+            <input type="text" id="name" name="name" required onblur="validateInput(this)" onfocus="removeBorder(this)">
+
+            <label for="username"> Username</label>
+            <input type="text" id="username" name="username" required onblur="validateInput(this)" onfocus="removeBorder(this)">
+
+            <label for="gender"> Gender</label>
+            <select id="gender" name="gender" onblur="validateInput(this)" onfocus="removeBorder(this)"> 
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Prefer not to mention</option>
+            </select>
+
+            <label for="password"> Password</label>
+            <input type="password" id="password" name="password" required onblur="validateInput(this)" onfocus="removeBorder(this)">
+
+            <label for="email"> Email Address</label>
+            <input type="email" id="email" name="email" required onblur="validateInput(this)" onfocus="removeBorder(this)">
+
+            <label for="address"> Address</label>
+            <textarea id="address" name="address" rows="5" onblur="validateInput(this)" onfocus="removeBorder(this)"></textarea>
+
+            <label for="interests"> Interests</label>
+            <textarea id="interests" name="interests" rows="5" onblur="validateInput(this)" onfocus="removeBorder(this)"></textarea>
+        </fieldset></br>
+        <div id="bbutton">
+            <center>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </center>
+        </div>
+    </form>
+
+    <div class="output" style="display:none">
+        <p><strong>Name:</strong> <span id="Name"></span></p>
+        <p><strong>Username:</strong> <span id="Username"></span></p>
+        <p><strong>Gender:</strong> <span id="Gender"></span></p>
+        <p><strong>Email Address:</strong> <span id="Email"></span></p>
+        <p><strong>Address:</strong> <span id="Address"></span></p>
+        <p><strong>Interests:</strong> <span id="Interests"></span></p>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const output = document.querySelector('.output');
+
+        function validateInput(element) {
+            if (element.value === "") {
+                element.style.border = "1px solid red";
+            } else {
+                element.style.border = "1px solid green";
+            }
+        }
+        function removeBorder(element) {
+            element.style.border = "";
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+                const name = form.elements.name.value;
+                const username = form.elements.username.value;
+                const gender = form.elements.gender.value;
+                const email = form.elements.email.value;
+                const address = form.elements.address.value;
+                const interests = form.elements.interests.value;
+
+                document.getElementById('Name').textContent = name;
+                document.getElementById('Username').textContent = username;
+                document.getElementById('Gender').textContent = gender;
+                document.getElementById('Email').textContent = email;
+                document.getElementById('Address').textContent = address;
+                document.getElementById('Interests').textContent = interests;
+
+                form.style.display = 'none';
+                output.style.display = 'block';
+                output.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            }
+            );
+        </script>
+    </body>
+</html>    
+
