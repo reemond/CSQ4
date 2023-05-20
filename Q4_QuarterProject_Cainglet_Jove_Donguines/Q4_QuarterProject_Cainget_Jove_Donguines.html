@@ -1,339 +1,926 @@
+
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="keywords" content="HTML, CSS, JavaScript">
-		<meta name="author" content="???">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
-		<style>
-		.field label{
-				display: none;
-			}
+<head>
+  <meta name="author" content="cainglet, Donguines, Jove(?)"> 
+  <meta name="keywords" content="HTML, CSS, JavaScript"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCE Reviewer</title>
+  <style>
+    html{
+    background-color: #315274;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+#title{
+    color: white;
+    font-family: courier new;
+    font-size: 70px;
+}
+#QS1{
+    border: 1px solid gray;
+    padding: 30px 0px 60px 0px;
+    width: 50%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: #f8faf9;
+    font-family: arial;
+}
+#question{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: rgb(237, 237, 237);
+    width: 450px;
+}
+#question2{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: rgb(237, 237, 237);
+    width: 425px;
+}
+#question4{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: rgb(237, 237, 237);
+    width: 500px;
+}
+#choice{
+    text-align: left;
+    padding-left: 130px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    width: 200px;
+}
+input[type="radio"] { 
+    width: 13px;
+}
+fieldset{
+    border-radius: 30px;
+    margin: auto;
+}
+#blank, #MC{
+    font-family: 'Courier new';
+    font-size: 50px;
+    color: white;
+}
+#MC{
+    margin-bottom: 12px;
+}
+h1{
+    font-family: courier new;
+}
+input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+    width: 70%;
+}
+#QS2{
+    text-align: left;
+    padding-left: 20px;
+}
+#QS3 {
+    border: 1px solid gray;
+    padding: 20px 0px 40px 0px;
+    width: 51%;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #f8faf9;
+    font-family: arial;
+}
+
+#submit{
+    border: 1px solid gray;
+    padding: 10px 0px 10px 0px;
+    width: 20%;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #f8faf9;
+    font-family: arial;
+}
+
+#reset{
+    border: 1px solid gray;
+    padding: 10px 0px 10px 0px;
+    width: 20%;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #f8faf9;
+    font-family: arial;
+}
+
+ .feedback{
+    font: black;
+ }
+
+ h1{
+    margin-top: 40px;
+    color: white;
+ }
+
+#userScore{
+    color: white;
+    font-size: larger;
+}
+</style>
+</head>
+<body>
+    <center>
+    <p id="title">MATH QUESTIONNAIRE</p>
+    <p id="MC">MULTIPLE CHOICE</p>
+	<form onsubmit="submitForm(event); checkAnswers()">
+		<fieldset id="QS1">
+		<p>Question 1</p>
+			<div id="choices">
+			<p> If a number <i>n</i> is odd, which of the following must be odd?</p>
+			<label>
+			<input type="radio" name="answer1" value="incorrect" oninput="enableSubmit()"> A. n + 1<br>
+			</label>
+			<label>
+			<input type="radio" name="answer1" value="incorrect" oninput="enableSubmit()"> B. n/2<br>
+			</label>
+			<label>
+			<input type="radio" name="answer1" value="correct" oninput="enableSubmit()"> C. n + 2<br>
+			</label>
+			<label>
+			<input type="radio" name="answer1" value="incorrect" oninput="enableSubmit()"> D. n - 1<br>
+			</label>
+			</div><br/>
+		<span id="a1"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+		<p>Question 2</p>
+			<div id="choices">
+			<p>The sum of the first 100 natural numbers is 5050. <br>What is the sum of the first 100 even natural numbers?</p>
+			<label>
+			<input type="radio" name="answer2" value="incorrect" oninput="enableSubmit()"> A. 200<br>
+			</label>
+			<label>
+			<input type="radio" name="answer2" value="incorrect" oninput="enableSubmit()"> B. 2525 <br>
+			</label>
+			<label>
+			<input type="radio" name="answer2" value="correct" oninput="enableSubmit()"> C. 10100<br>
+			</label>
+			<label>
+			<input type="radio" name="answer2" value="incorrect" oninput="enableSubmit()"> D. 2520<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a2"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 3</p>
+                <div id="choices">
+			<p>If 0.2p = 4, then 4p = ?</p>
+			<label>
+			<input type="radio" name="answer3" value="incorrect" oninput="enableSubmit()"> A. 2<br>
+			</label>
+			<label>
+			<input type="radio" name="answer3" value="incorrect" oninput="enableSubmit()"> B. 8<br>
+			</label>
+			<label>
+			<input type="radio" name="answer3" value="incorrect" oninput="enableSubmit()"> C. 40<br>
+			</label>
+			<label>
+			<input type="radio" name="answer3" value="correct" oninput="enableSubmit()"> D. 80<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a3"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 4</p>
+                <div id="choices">
+			<p>Jamal, Mauro, and Julian went grocery shopping. Jamal spent <br>three times as much as Mauro and half as much as Julian. If they <br> spent a total of ₱5,000 on groceries, how much did Julian spend?</p>
+			<label>
+			<input type="radio" name="answer4" value="incorrect" oninput="enableSubmit()"> A. ₱2000<br>
+			</label>
+			<label>
+			<input type="radio" name="answer4" value="incorrect" oninput="enableSubmit()"> B. ₱2500<br>
+			</label>
+			<label>
+			<input type="radio" name="answer4" value="correct" oninput="enableSubmit()"> C. ₱3000<br>
+			</label>
+			<label>
+			<input type="radio" name="answer4" value="incorrect" oninput="enableSubmit()"> D. ₱4500<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a4"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 5</p>
+                <div id="choices">
+			<div class="choices">
+			<p> Triangle PQR has sides measuring 6, 5, and <i>n</i>. Which of <br>the following CANNOT be a value of <i>n</i>? </p>
+			<label>
+			<input type="radio" name="answer5" value="correct" oninput="enableSubmit()"> A. 1<br>
+			</label>
+			<label>
+			<input type="radio" name="answer5" value="incorrect" oninput="enableSubmit()"> B. 5<br>
+			</label>
+			<label>
+			<input type="radio" name="answer5" value="incorrect" oninput="enableSubmit()"> C. 6<br>
+			</label>
+			<label>
+			<input type="radio" name="answer5" value="incorrect" oninput="enableSubmit()"> D. 2<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a5"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 6</p>
+                <div id="choices">
+			<p>The smallest five-digit number without repeated <br> digits is subtracted from the greatest five-digit number without <br>repeated digits. Find the difference.</p>
+			<label>
+			<input type="radio" name="answer6" value="incorrect" oninput="enableSubmit()"> A. 86 420<br>
+			</label>
+			<label>
+			<input type="radio" name="answer6" value="incorrect" oninput="enableSubmit()"> B. 86 731</br>
+			</label>
+			<label>
+			<input type="radio" name="answer6" value="incorrect" oninput="enableSubmit()"> C. 88 522<br>
+			</label>
+			<label>
+			<input type="radio" name="answer6" value="correct" oninput="enableSubmit()"> D. 88 531<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a6"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+		<p>Question 7</p>
+			<div id="choices">
+			<p>Carla had twice as much money as Vida. After Carla gave <br> ₱12.00 to Vida, Carla Still has ₱10 more than Vida. How <br>much was was the total money of the two girls in the beginning?</p>
+			<label>
+			<input type="radio" name="answer7" value="incorrect" oninput="enableSubmit()"> A. ₱76 <br>
+			</label>
+			<label>
+			<input type="radio" name="answer7" value="incorrect" oninput="enableSubmit()"> B. ₱68<br>
+			</label>
+			<label>
+			<input type="radio" name="answer7" value="incorrect" oninput="enableSubmit()"> C. ₱93<br>
+			</label>
+			<label>
+			<input type="radio" name="answer7" value="correct" oninput="enableSubmit()"> D. ₱102<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a7"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 8</p>
+                <div id="choices">
+			<p>If <i>x</i> is a whole number greater than 1, and the <br>product of <i>x</i> and <i>x</i> + 4 is odd, then <i>x</i> must be</p>
+			<label>
+			<input type="radio" name="answer8" value="incorrect" oninput="enableSubmit()"> A. even<br>
+			</label>
+			<label>
+			<input type="radio" name="answer8" value="correct" oninput="enableSubmit()"> B. odd<br>
+			</label>
+			<label>
+			<input type="radio" name="answer8" value="incorrect" oninput="enableSubmit()"> C. prime<br>
+			</label>
+			<label>
+			<input type="radio" name="answer8" value="incorrect" oninput="enableSubmit()"> D. a factor of 8<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a8"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 9</p>
+                <div id="choices">
+			<p>If <i>m</i> is a natural number less than 3, then which of the <br>following could be a factor of the product of <i>m</i> and <i>m</i> + 1?</p>
+			<label>
+			<input type="radio" name="answer9" value="correct" oninput="enableSubmit()"> A. 3<br>
+			</label>
+			<label>
+			<input type="radio" name="answer9" value="incorrect" oninput="enableSubmit()"> B. 4 <br>
+			</label>
+			<label>
+			<input type="radio" name="answer9" value="incorrect" oninput="enableSubmit()"> C. 5<br>
+			</label>
+			<label>
+			<input type="radio" name="answer9" value="incorrect" oninput="enableSubmit()"> D.8<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a9"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 10</p>
+                <div id="choices">
+			<p>Mrs. Venus bought 200 pens at 25 for ₱80.00. She sold <br>all of them at 4 for ₱20.00. How much profit did she make?</p>
+			<label>
+			<input type="radio" name="answer10" value="incorrect" oninput="enableSubmit()"> A. ₱300<br>
+			</label>
+			<label>
+			<input type="radio" name="answer10" value="correct" oninput="enableSubmit()"> B. ₱360<br>
+			</label>
+			<label>
+			<input type="radio" name="answer10" value="incorrect" oninput="enableSubmit()"> C. ₱400<br>
+			</label>
+			<label>
+			<input type="radio" name="answer10" value="incorrect" oninput="enableSubmit()"> D. ₱420<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a10"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 11</p>
+                <div id="choices">
+			<p>Four liters of apple juice are mixed with <BR> 5 liters of carrot juice and 3 liters of orange juice. <br> What part of the total mixture is apple juice?</p>
+			<label>
+			<input type="radio" name="answer11" value="incorrect" oninput="enableSubmit()"> A. 1/6<br>
+			</label>
+			<label>
+			<input type="radio" name="answer11" value="incorrect" oninput="enableSubmit()"> B. 1/2<br>
+			</label>
+			<label>
+			<input type="radio" name="answer11" value="correct" oninput="enableSubmit()"> C. 1/4<br>
+			</label>
+			<label>
+			<input type="radio" name="answer11" value="incorrect" oninput="enableSubmit()"> D. 4/9<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a11"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 12</p>
+                <div id="choices">
+			<p>If Jonathan divided 210 mangoes into baskets containing <br>the same number of mangoes, then each of the following <br>could be the number of mangoes per basket EXCEPT</p>
+			<label>
+			<input type="radio" name="answer12" value="incorrect" oninput="enableSubmit()"> A. 35<br>
+			</label>
+			<label>
+			<input type="radio" name="answer12" value="incorrect" oninput="enableSubmit()"> B. 21<br>
+			</label>
+			<label>
+			<input type="radio" name="answer12" value="correct" oninput="enableSubmit()"> C. 20<br>
+			</label>
+			<label>
+			<input type="radio" name="answer12" value="incorrect" oninput="enableSubmit()"> D. 15<br>
+			<label>
+			</div>
+		</div><br/>
+		<span id="a12"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 13</p>
+            <div id="choices">
+			<p>Which of the following can be expressed as the <br>product of two consecutive even numbers?</p>
+			<label>
+			<input type="radio" name="answer13" value="incorrect" oninput="enableSubmit()"> A. 30<br>
+			</label>
+			<label>
+			<input type="radio" name="answer13" value="incorrect" oninput="enableSubmit()"> B. 36<br>
+			</label>
+			<label>
+			<input type="radio" name="answer13" value="correct" oninput="enableSubmit()"> C. 48<br>
+			</label>
+			<label>
+			<input type="radio" name="answer13" value="incorrect" oninput="enableSubmit()"> D. 60<br>
+			<label>
+			</div>
+		</div><br/>
+		<span id="a13"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 14</p>
+                <div id="choices">
+			<p>King and Raymond together weight 130 kg. Raymond <br>and Erika together weigh 104 kg. All three together <br>weigh 180 kg. What is Raymond's weight?</p> 
+			<label>
+			<input type="radio" name="answer14" value="incorrect" oninput="enableSubmit()"> A. 50 kg<br>
+			</label>
+			<label>
+			<input type="radio" name="answer14" value="correct" oninput="enableSubmit()"> B. 54 kg<br>
+			</label>
+			<label>
+			<input type="radio" name="answer14" value="incorrect" oninput="enableSubmit()"> C. 63 kg<br>
+			</label>
+			<label>
+			<input type="radio" name="answer14" value="incorrect" oninput="enableSubmit()"> D. 76 kg<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a14"></span>
+		</fieldset>
+
+		<fieldset id="QS1">
+            <p>Question 15</p>
+                <div id="choices">
+			<p>Four janitors can wash all the windows in a learning school <br>in 24 minutes. The janitors all work at the same rate. How <br>long would it take 8 janitors, working at the same rate, <br>to wash all the windows in the learning school?</p>
+			<label>
+			<input type="radio" name="answer15" value="incorrect" oninput="enableSubmit()"> A. 96 minutes<br>
+			</label>
+			<label>
+			<input type="radio" name="answer15" value="incorrect" oninput="enableSubmit()"> B. 32 minutes<br>
+			</label>
+			<label>
+			<input type="radio" name="answer15" value="incorrect" oninput="enableSubmit()"> C. 20 minutes<br>
+			</label>
+			<label>
+			<input type="radio" name="answer15" value="correct" oninput="enableSubmit()"> D. 12 minutes<br>
+			</label>
+			</div>
+		</div><br/>
+		<span id="a15"></span>
+		</fieldset>
+	
+		<h1>Fill in the Blanks</h1>
 		
-		</style>
-    </head>
-    <body>
-        <center>
-		<p id="title">MATH QUESTIONNAIRE</p>
-		<p id="MC">MULTIPLE CHOICE</p>
-		<div class="content">
-            <form>
-                <div id="QS1">
-                    <legend id="number">1/15</legend>
-                    <p id="question">If a number <i>n</i> is odd, which of the following must be odd?</p>
-                    <div id="choice">
-                        <input type="radio" class="options" name="options" id="option1" autocomplete="off" />
-                        <label class="options" for="option1">A. n + 1</label><br>
-                        
-                        <input type="radio" class="options" name="options" id="option2" autocomplete="off" />
-                        <label class="options" for="option2">B. n/2</label><br>
-                        
-                        <input type="radio" class="options" name="options" id="option3" autocomplete="off" />
-                        <label class="options" for="option3">C. n + 2</label><br>
+		<fieldset id="QS1">
+		<p>
+		  <label for="q1">16: 90 is _____% of 75% of 600.<br></br>
+		  <input type="text" id="answer16" placeholder="Input answer here." onkeyup="enableSubmit()">
+		   <br><br/>
+		  <span id="a16"></span>
+		</p>
 
-                        <input type="radio" class="options" name="options" id="option4" autocomplete="off" />
-                        <label class="options" for="option4">D. n - 1</label><br>
-                    </div>
-                    </div>
-				
-                    <!--Question #2-->
-                    <div id="QS1">
-					<legend>2/15</legend>
-					<p id="question2">The sum of the first 100 natural numbers is 5050. <br>What is the sum of the first 100 even natural numbers? </p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option5" autocomplete="off" />
-						<label class="options" for="option5">A. 200</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option6" autocomplete="off" />
-						<label class="options" for="option6">B. 2525</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option7" autocomplete="off" />
-						<label class="options" for="option7">C. 1010</label><br>
+        <br>
 
-						<input type="radio" class="options" name="options" id="option8" autocomplete="off" />
-						<label class="options" for="option8">D. 5250</label><br>
-					</div>
-                    </div>
+		<p>
+		  <label for="q1">17. 18 ÷ 3 × 2 − 8 ÷ 2 + 2 = ___.</label><br></br>
+		  <input type="text" id="answer17" placeholder="Input answer here." onkeyup="enableSubmit()">
+		  <br><br/>
+		  <span id="a17"></span>
+		</p>
 
-                    <div id="QS1">
-					<legend>3/15</legend>
-					<p id="question">If 0.2p = 4, then 4p = ?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option9" autocomplete="off" />
-						<label class="options" for="option9">A. 2</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option10" autocomplete="off" />
-						<label class="options" for="option10">B. 8</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option11" autocomplete="off" />
-						<label class="options" for="option11">C. 40</label><br>
+        <br>
 
-						<input type="radio" class="options" name="options" id="option12" autocomplete="off" />
-						<label class="options" for="option12">D. 80</label><br>
-					</div>
-                    </div>
+		<p>
+		  <label for="q1">18. If the sum of two numbers is 14, and their difference is 4. <br> Then, their product must be ___.</label><br></br>
+		  <input type="text" id="answer18" placeholder="Input answer here." onkeyup="enableSubmit()">
+		  <br><br/>
+		  <span id="a18"></span>
+		</p>
 
-                    <div id="QS1">
-					<legend>4/15</legend>
-					<p id="question4">Jamal, Mauro, and Julian went grocery shopping. Jamal spent <br>three times as much as Mauro and half as much as Julian. If <br>they spent a total of ₱5,000 on groceries, <br>how much did Julian spend?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option13" autocomplete="off" />
-						<label class="options" for="option13">A. ₱2000</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option14" autocomplete="off" />
-						<label class="options" for="option14">B. ₱2500</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option15" autocomplete="off" />
-						<label class="options" for="option15">C. ₱3000</label><br>
+        <br>
 
-						<input type="radio" class="options" name="options" id="option16" autocomplete="off" />
-						<label class="options" for="option16">D. ₱4500</label><br>
-					</div>
-                    </div>
+		<p>
+		  <label for="q1">19. ___ is the least number of the three consecutive even  <br> numbers that has an average of 522.</label><br></br>
+		  <input type="text" id="answer19" placeholder="Input answer here." onkeyup="enableSubmit()">
+		  <br><br/>
+		  <span id="a19"></span>
+		</p>
 
-                    <div id="QS1">
-					<legend>5/15</legend>
-					<p id="question">Triangle PQR has sides measuring 6, 5, and <i>n</i>. Which of <br>the following CANNOT be a value of <i>n</i>?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option17" autocomplete="off" />
-						<label class="options" for="option17">A. 1</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option18" autocomplete="off" />
-						<label class="options" for="option18">B. 2</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option19" autocomplete="off" />
-						<label class="options" for="option19">C. 5</label><br>
+        <br> 
 
-						<input type="radio" class="options" name="options" id="option20" autocomplete="off" />
-						<label class="options" for="option20">D. 6</label><br>
-					</div>
-                    </div>
+		<p>
+		  <label for="q1">20. 20% of a number is 10, and the 10% of that number is ___.</label><br></br>
+		  <input type="text" id="answer20" placeholder="Input answer here." onkeyup="enableSubmit()">
+		  <br><br/>
+		 <span id="a20"></span>
+		</p>
+	  
+		</fieldset>
+		
+		  <input type="submit" id="submit"> 
+		  <button type="button" id="reset" onclick="resetForm()">Reset</button>
 
-                    <div id="QS1">
-					<legend>6/15</legend>
-					<p id="question">The smallest five-digit number without repeated digits is subtracted from the greatest five-digit number without <br>repeated digits Find the difference.</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option21" autocomplete="off" />
-						<label class="options" for="option21">A. 86 420</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option22" autocomplete="off" />
-						<label class="options" for="option22">B. 86 731</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option23" autocomplete="off" />
-						<label class="options" for="option23">C. 88 522</label><br>
-
-						<input type="radio" class="options" name="options" id="option24" autocomplete="off" />
-						<label class="options" for="option24">D. 88 531</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>7/15</legend>
-					<p id="question">Carla had twice as much money as Vida. After Carla gave ₱12.00 to Vida, Carla Still has ₱10 more than Vida. How <br>much was was the total money of the two girls in the beginning?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option25" autocomplete="off" />
-						<label class="options" for="option25">A. ₱76</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option26" autocomplete="off" />
-						<label class="options" for="option26">B. ₱68</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option27" autocomplete="off" />
-						<label class="options" for="option27">C. ₱93</label><br>
-
-						<input type="radio" class="options" name="options" id="option28" autocomplete="off" />
-						<label class="options" for="option28">D. ₱102</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>8/15</legend>
-					<p id="question">If <i>x</i> is a whole number greater than 1, and the <br>product of <i>x</i> and <i>x</i> + 4 is odd, then <i>x</i> must be</p>
-					<div id="choice">
-					<input type="radio" class="options" name="options" id="option29" autocomplete="off" />
-					<label class="options" for="option29">A. even</label><br>
-				  
-					<input type="radio" class="options" name="options" id="option30" autocomplete="off" />
-					<label class="options" for="option30">B. odd</label><br>
-				  
-					<input type="radio" class="options" name="options" id="option31" autocomplete="off" />
-					<label class="options" for="option31">C. prime</label><br>
-
-					<input type="radio" class="options" name="options" id="option32" autocomplete="off" />
-					<label class="options" for="option32">D. a factor of 8</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>9/15</legend>
-					<p id="question">If <i>m</i> is a natural number less than 3, then which of the <br>following could be a factor of the product of <i>m</i> and <i>m</i> + 1?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option33" autocomplete="off" />
-						<label class="options" for="option33">A. 3</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option34" autocomplete="off" />
-						<label class="options" for="option34">B. 4</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option35" autocomplete="off" />
-						<label class="options" for="option35">C. 5</label><br>
-
-						<input type="radio" class="options" name="options" id="option36" autocomplete="off" />
-						<label class="options" for="option36">D. 8</label><br>
-					</div>
-                    </div>
-					
-                    <div id="QS1">
-                    <legend>10/15</legend>
-					<p id="question">Mrs. Venus bought 200 pens at 25 for ₱80.00. She sold <br>all of them at 4 for ₱20.00. How much profit did she make?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option37" autocomplete="off" />
-						<label class="options" for="option37">A. ₱300</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option38" autocomplete="off" />
-						<label class="options" for="option38">B. ₱360</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option39" autocomplete="off" />
-						<label class="options" for="option39">C. ₱400</label><br>
-
-						<input type="radio" class="options" name="options" id="option40" autocomplete="off" />
-						<label class="options" for="option40">D. ₱420</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>11/15</legend>
-					<p id="question">Four liters of apple juice are mixed with 5 liters of <br>carrot juice and 3 liters of orange juice. What part of the <br>total mixture is apple juice?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option41" autocomplete="off" />
-						<label class="options" for="option41">A. 1/6</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option42" autocomplete="off" />
-						<label class="options" for="option42">B. 1/2</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option43" autocomplete="off" />
-						<label class="options" for="option43">C. 1/4</label><br>
-
-						<input type="radio" class="options" name="options" id="option44" autocomplete="off" />
-						<label class="options" for="option44">D. 4/9</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>12/15</legend>
-					<p id="question">If Jonathan divided 120 mangoes into baskets containing <br>the same number of mangoes, then each of the following <br>could be the number of mangoes per baet EXCEPT</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option45" autocomplete="off" />
-						<label class="options" for="option45">A. 35</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option46" autocomplete="off" />
-						<label class="options" for="option46">B. 21</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option47" autocomplete="off" />
-						<label class="options" for="option47">C. 20</label><br>
-
-						<input type="radio" class="options" name="options" id="option48" autocomplete="off" />
-						<label class="options" for="option48">D. 15</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>13/15</legend>
-					<p id="question">Which of the following can be expressed as the <br>product of two consecutive even numbers?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option49" autocomplete="off" />
-						<label class="options" for="option49">A. 30</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option50" autocomplete="off" />
-						<label class="options" for="option50">B. 36</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option51" autocomplete="off" />
-						<label class="options" for="option51">C. 48</label><br>
-
-						<input type="radio" class="options" name="options" id="option52" autocomplete="off" />
-						<label class="options" for="option52">D. 60</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>14/15</legend>
-					<p id="question">King and Raymond together weight 130 kg. Raymond <br>and Erika together weigh 104 kg. All three together <br>weigh 180 kg. What is Raymond's weight? </p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option53" autocomplete="off" />
-						<label class="options" for="option53">A. 50 kg</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option54" autocomplete="off" />
-						<label class="options" for="option54">B. 54 kg</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option55" autocomplete="off" />
-						<label class="options" for="option55">C. 63 kg</label><br>
-
-						<input type="radio" class="options" name="options" id="option56" autocomplete="off" />
-						<label class="options" for="option56">D. 76 kg</label><br>
-					</div>
-                    </div>
-
-                    <div id="QS1">
-					<legend>15/15</legend>
-					<p id="question">Four janitors can wash all the windows in a learning school <br>in 24 minutes. The janitors all work at the same rate. How <br>long would it take 8 janitors, working at the same rate, <br>to wash all the windows in the learning school?</p>
-					<div id="choice">
-						<input type="radio" class="options" name="options" id="option57" autocomplete="off" />
-						<label class="options" for="option25">A. 96 minutes</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option58" autocomplete="off" />
-						<label class="options" for="option26">B. 32 minutes</label><br>
-					  
-						<input type="radio" class="options" name="options" id="option59" autocomplete="off" />
-						<label class="options" for="option27">C. 20 minutes</label><br>
-
-						<input type="radio" class="options" name="options" id="option60" autocomplete="off" />
-						<label class="options" for="option28">D. 12 minutes</label><br>
-					</div>
-                    </div><br><br><br><br>
-
-				<div id="blank">			
-                <legend>FILL IN THE BLANKS</legend>
-				</div>
-				</div>
-				<div id="QS3">
-				<div class="field" id="QS2">
-					<p>16. 90 is _____% of 75% of 600.</p><br>
-					<label for ="password">InPUT</label>
-					<input type="text" id="password" name="password"placeholder="Answer" required>
-				 </div>
-				 </div>
-
-				 <div id="QS3" id="QS2">
-				 <div class="field" id="QS2">
-					<p>17. 18 ÷ 3 × 2 − 8 ÷ 2 + 2 = ___.</p><br>
-					<label for ="password">InPUT</label>
-					<input type="text" id="password" name="password"placeholder="Answer" required>
-				 </div>
-				</div>
-
-				<div id="QS3">
-				 <div class="field" id="QS2">
-					<p>18. If the sum of two numbers is 14, and their difference is 4. Then, their product must be ___.</p><br>
-					<label for ="password">InPUT</label>
-					<input type="text" id="password" name="password"placeholder="Answer" required>
-				 </div>
-				</div>
-
-				<div id="QS3">
-				 <div class="field" id="QS2">
-					<p>19. ___ is the least number of the three consecutive even numbers that has an average of 522.</p><br>
-					<label for ="password">InPUT</label>
-					<input type="text" id="password" name="password"placeholder="Answer" required>
-				 </div>
-				</div>
-
-				<div id="QS3">
-				 <div class="field" id="QS2">
-					<p>20. 20% of a number is 10, and the 10% of that number is ___.</p><br>
-					<label for ="password">InPUT</label>
-					<input type="text" id="password" name="password"placeholder="Answer" required>
-				 </div>
-				</div>
-                </center>
-			</form>
-		 </div>
-    </body>
+		
+		<p id="userScore"> Total Score : 0/20 </p>
+    </center>
+</form>
+<script>
+function checkAnswers() {
+      var score = 0;
+      var feedback1 = document.getElementById("a1");
+	  var feedback2 = document.getElementById("a2");
+	  var feedback3 = document.getElementById("a3");
+	  var feedback4 = document.getElementById("a4");
+	  var feedback5 = document.getElementById("a5");
+	  var feedback6 = document.getElementById("a6");
+	  var feedback7 = document.getElementById("a7");
+	  var feedback8 = document.getElementById("a8");
+	  var feedback9 = document.getElementById("a9");
+	  var feedback10 = document.getElementById("a10");
+	  var feedback11 = document.getElementById("a11");
+	  var feedback12 = document.getElementById("a12");
+	  var feedback13 = document.getElementById("a13");
+	  var feedback14 = document.getElementById("a14");
+	  var feedback15 = document.getElementById("a15");
+	  var feedback16 = document.getElementById("a16");
+	  var feedback17 = document.getElementById("a17");
+	  var feedback18 = document.getElementById("a18");
+	  var feedback19 = document.getElementById("a19");
+	  var feedback20 = document.getElementById("a20");
+      
+      var answer1 = document.querySelector('input[name="answer1"]:checked');
+      if (answer1) {
+        if (answer1.value === "correct") {
+          feedback1.innerHTML = "Correct!<br>";
+		  feedback1.style.color = "green";
+          score++;
+        } else {
+          feedback1.innerHTML = "Wrong. Correct answer is C. <br>";
+		  feedback1.style.color = "red";
+        }
+      } else {
+        feedback1.innerHTML = "Please answer.<br>";
+		feedback1.style.color = "red";
+      }
+	  
+	  var answer2 = document.querySelector('input[name="answer2"]:checked');
+      if (answer2) {
+        if (answer2.value === "correct") {
+          feedback2.innerHTML = "Correct!<br>";
+		  feedback2.style.color = "green";
+          score++;
+        } else {
+          feedback2.innerHTML = "Wrong. Correct answer is C. <br>";
+		  feedback2.style.color = "red";
+		  
+        }
+      } else {
+        feedback2.innerHTML = "Please answer.<br>";
+		 feedback2.style.color = "red";
+      }
+      
+	  var answer3 = document.querySelector('input[name="answer3"]:checked');
+      if (answer3) {
+        if (answer3.value === "correct") {
+          feedback3.innerHTML = "Correct!<br>";
+		  feedback3.style.color = "green";
+          score++;
+        } else {
+          feedback3.innerHTML = "Wrong. Correct answer is D.<br>";
+		  feedback3.style.color = "red";
+        }
+      } else {
+        feedback3.innerHTML = "Please answer.<br>";
+		feedback3.style.color = "red";
+      }
+	  
+	  var answer4 = document.querySelector('input[name="answer4"]:checked');
+      if (answer4) {
+        if (answer4.value === "correct") {
+          feedback4.innerHTML = "Correct!";
+		  feedback4.style.color = "green";
+          score++;
+        } else {
+          feedback4.innerHTML = "Wrong. Correct answer is C.<br>";
+		  feedback4.style.color = "red";
+        }
+      } else {
+        feedback4.innerHTML = "Please answer.<br>";
+		feedback4.style.color = "red";
+      }
+	  
+	  var answer5 = document.querySelector('input[name="answer5"]:checked');
+      if (answer5) {
+        if (answer5.value === "correct") {
+          feedback5.innerHTML = "Correct!<br>";
+		  feedback5.style.color = "green";
+          score++;
+        } else {
+          feedback5.innerHTML = "Wrong. Correct answer is A. <br>";
+		  feedback5.style.color = "red";
+        }
+      } else {
+        feedback5.innerHTML = "Please answer.<br>";
+		feedback5.style.color = "red";
+      }
+	  
+	  var answer6 = document.querySelector('input[name="answer6"]:checked');
+      if (answer6) {
+        if (answer6.value === "correct") {
+          feedback6.innerHTML = "Correct!<br>";
+		  feedback6.style.color = "green";
+          score++;
+        } else {
+          feedback6.innerHTML = "Wrong. Correct answer is D.<br>";
+		  feedback6.style.color = "red";
+        }
+      } else {
+        feedback6.innerHTML = "Please answer.<br>";
+		feedback6.style.color = "red";
+      }
+	  
+	  var answer7 = document.querySelector('input[name="answer7"]:checked');
+      if (answer7) {
+        if (answer7.value === "correct") {
+          feedback7.innerHTML = "Correct!<br>";
+		  feedback7.style.color = "green";
+          score++;
+        } else {
+          feedback7.innerHTML = "Wrong. Correct answer is D. <br>";
+		  feedback7.style.color = "red";
+        }
+      } else {
+        feedback7.innerHTML = "Please answer.<br>";
+		feedback7.style.color = "red";
+      }
+	  
+	  var answer8 = document.querySelector('input[name="answer8"]:checked');
+      if (answer8) {
+        if (answer8.value === "correct") {
+          feedback8.innerHTML = "Correct!<br>";
+		  feedback8.style.color = "green";
+          score++;
+        } else {
+          feedback8.innerHTML = "Wrong. Correct answer is B.<br>";
+		  feedback8.style.color = "red";
+        }
+      } else {
+        feedback8.innerHTML = "Please answer.<br>";
+		feedback8.style.color = "red";
+      }
+	  
+	  var answer9 = document.querySelector('input[name="answer9"]:checked');
+      if (answer9) {
+        if (answer9.value === "correct") {
+          feedback9.innerHTML = "Correct!<br>";
+		  feedback9.style.color = "green";
+          score++;
+        } else {
+          feedback9.innerHTML = "Wrong. Correct answer is A.<br>";
+		  feedback9.style.color = "red";
+        }
+      } else {
+        feedback9.innerHTML = "Please answer.<br>";
+		feedback9.style.color = "red";
+      }
+	  
+	  var answer10 = document.querySelector('input[name="answer10"]:checked');
+      if (answer10) {
+        if (answer10.value === "correct") {
+          feedback10.innerHTML = "Correct!<br>";
+		  feedback10.style.color = "green";
+          score++;
+        } else {
+          feedback10.innerHTML = "Wrong. Correct answer is B.<br>";
+		  feedback10.style.color = "red";
+        }
+      } else {
+        feedback10.innerHTML = "Please answer.<br>";
+		feedback10.style.color = "red";
+      }
+	  
+	  var answer11 = document.querySelector('input[name="answer11"]:checked');
+      if (answer11) {
+        if (answer11.value === "correct") {
+          feedback11.innerHTML = "Correct!<br>";
+		  feedback11.style.color = "green";
+          score++;
+        } else {
+          feedback11.innerHTML = "Wrong. Correct answer is C.<br>";
+		  feedback11.style.color = "red";
+        }
+      } else {
+        feedback11.innerHTML = "Please answer.<br>";
+		feedback11.style.color = "red";
+      }
+	  
+	  var answer12 = document.querySelector('input[name="answer12"]:checked');
+      if (answer12) {
+        if (answer12.value === "correct") {
+          feedback12.innerHTML = "Correct!<br>";
+		  feedback12.style.color = "green";
+          score++;
+        } else {
+          feedback12.innerHTML = "Wrong. Correct answer is C. <br>";
+		  feedback12.style.color = "red";
+        }
+      } else {
+        feedback12.innerHTML = "Please answer.<br>";
+		feedback12.style.color = "red";
+      }
+	  
+	  var answer13 = document.querySelector('input[name="answer13"]:checked');
+      if (answer13) {
+        if (answer13.value === "correct") {
+          feedback13.innerHTML = "Correct!<br>";
+		  feedback13.style.color = "green";
+          score++;
+        } else {
+          feedback13.innerHTML = "Wrong. Correct answer is C.<br>";
+		  feedback13.style.color = "red";
+        }
+      } else {
+        feedback13.innerHTML = "Please answer.<br>";
+		feedback13.style.color = "red";
+      }
+	  
+	  var answer14 = document.querySelector('input[name="answer14"]:checked');
+      if (answer14) {
+        if (answer14.value === "correct") {
+          feedback14.innerHTML = "Correct!<br>";
+		  feedback14.style.color = "green";
+          score++;
+        } else {
+          feedback14.innerHTML = "Wrong. Correct answer is B. <br>";
+		  feedback14.style.color = "red";
+        }
+      } else {
+        feedback14.innerHTML = "Please answer.<br>";
+		feedback14.style.color = "red";
+      }
+	  
+	  var answer15 = document.querySelector('input[name="answer15"]:checked');
+      if (answer15) {
+        if (answer15.value === "correct") {
+          feedback15.innerHTML = "Correct!<br>";
+		  feedback15.style.color = "green";
+          score++;
+        } else {
+          feedback15.innerHTML = "Wrong. Correct answer is D.<br>";
+		  feedback15.style.color = "red";
+        }
+      } else {
+        feedback15.innerHTML = "Please answer.<br>";
+		feedback15.style.color = "red";
+      }
+	  
+      var answer16 = document.getElementById("answer16").value;
+      if (answer16) {
+        if (answer16.toLowerCase() === "20") {
+          feedback16.innerHTML = "Correct!<br>";
+		  feedback16.style.color = "green";
+          score++;
+        } else {
+          feedback16.innerHTML = "Incorrect. Correct answer is 20.<br>";
+		  feedback16.style.color = "red";
+        }
+      } else {
+        feedback16.innerHTML = "Please answer.<br>";
+		feedback16.style.color = "red";
+      }
+	  
+	  var answer17 = document.getElementById("answer17").value.trim();
+      if (answer17) {
+        if (answer17.toLowerCase() === "4") {
+          feedback17.innerHTML = "Correct!<br>";
+		  feedback17.style.color = "green";
+          score++;
+        } else {
+          feedback17.innerHTML = "Incorrect. Correct answer is 4.<br>";
+		  feedback17.style.color = "red";
+        }
+      } else {
+        feedback17.innerHTML = "Please answer.<br>";
+		feedback17.style.color = "red";
+      }
+	  
+	  var answer18 = document.getElementById("answer18").value.trim();
+      if (answer18) {
+        if (answer18.toLowerCase() === "45") {
+          feedback18.innerHTML = "Correct!<br>";
+		  feedback18.style.color = "green";
+          score++;
+        } else {
+          feedback18.innerHTML = "Wrong. Correct answer is 45.<br>";
+		  feedback18.style.color = "red";
+        }
+      } else {
+        feedback18.innerHTML = "Please answer.<br>";
+		feedback18.style.color = "red";
+      }
+      
+	  var answer19 = document.getElementById("answer19").value.trim();
+      if (answer19) {
+        if (answer19.toLowerCase() === "256") {
+          feedback19.innerHTML = "Correct!<br>";
+		  feedback19.style.color = "green";
+          score++;
+        } else {
+          feedback19.innerHTML = "Wrong. Correct answer is 256.<br>";
+		  feedback19.style.color = "red";
+        }
+      } else {
+        feedback19.innerHTML = "Please answer.<br>";
+		feedback19.style.color = "red";
+      }
+	  
+	  var answer20 = document.getElementById("answer20").value.trim();
+      if (answer20) {
+        if (answer20.toLowerCase() === "5") {
+          feedback20.innerHTML = "Correct!<br>";
+		  feedback20.style.color = "green";
+          score++;
+        } else {
+          feedback20.innerHTML = "Wrong. Correct answer is 5.<br>";
+		  feedback20.style.color = "red";
+        }
+      } else {
+        feedback20.innerHTML = "Please answer.<br>";
+		feedback20.style.color = "red";
+      }
+	 
+      document.getElementById("scoreBoard").innerHTML = "Total Score : " + score + "/20";
+    }
+    
+    function resetForm() {
+      var feedback1 = document.getElementById("a1");
+	  var feedback2 = document.getElementById("a2");
+	  var feedback3 = document.getElementById("a3");
+	  var feedback4 = document.getElementById("a4");
+	  var feedback5 = document.getElementById("a5");
+	  var feedback6 = document.getElementById("a6");
+	  var feedback7 = document.getElementById("a7");
+	  var feedback8 = document.getElementById("a8");
+	  var feedback9 = document.getElementById("a9");
+	  var feedback10 = document.getElementById("a10");
+	  var feedback11 = document.getElementById("a11");
+	  var feedback12 = document.getElementById("a12");
+	  var feedback13 = document.getElementById("a13");
+	  var feedback14 = document.getElementById("a14");
+	  var feedback15 = document.getElementById("a15");
+	  var feedback16 = document.getElementById("a16");
+	  var feedback17 = document.getElementById("a17");
+	  var feedback18 = document.getElementById("a18");
+	  var feedback19 = document.getElementById("a19");
+	  var feedback20 = document.getElementById("a20");
+      
+      // Reset all input values
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].type === "radio") {
+          inputs[i].checked = false;
+        } else if (inputs[i].type === "text") {
+          inputs[i].value = "";
+        }
+      }
+      
+      // Clear feedback and score
+      feedback1.innerHTML = "";
+	  feedback2.innerHTML = "";
+	  feedback3.innerHTML = "";
+	  feedback4.innerHTML = "";
+	  feedback5.innerHTML = "";
+	  feedback6.innerHTML = "";
+	  feedback7.innerHTML = "";
+	  feedback8.innerHTML = "";
+	  feedback9.innerHTML = "";
+	  feedback10.innerHTML = "";
+	  feedback11.innerHTML = "";
+	  feedback12.innerHTML = "";
+	  feedback13.innerHTML = "";
+	  feedback14.innerHTML = "";
+	  feedback15.innerHTML = "";
+	  feedback16.innerHTML = "";
+	  feedback17.innerHTML = "";
+	  feedback18.innerHTML = "";
+	  feedback19.innerHTML = "";
+	  feedback20.innerHTML = "";
+	  document.getElementById("scoreBoard").textContent = "Total Score : " + 0 + "/20";
+	  
+    }
+    
+    function enableSubmit() {
+      var submitButton = document.getElementById("submit");
+      
+      var allAnswered = true;
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+        if ((inputs[i].type === "radio" || inputs[i].type === "text") && !inputs[i].value) {
+          allAnswered = false;
+          break;
+        }
+      }
+      
+      submitButton.disabled = !allAnswered;
+    }
+	function submitForm(event) {
+		event.preventDefault();
+		
+	return false;
+	}
+</script>
+</body>
 </html>
